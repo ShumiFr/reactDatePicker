@@ -1,0 +1,52 @@
+.datePicker-container {
+  display: flex;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.datePicker-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.datePicker-header button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.datePicker-body table {
+  width: 100%;
+}
+
+.datePicker-body th,
+.datePicker-body td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.datePicker-body td:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.datePicker-body td.active {
+  background-color: orange;
+}
+
+.datePicker-popup {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
