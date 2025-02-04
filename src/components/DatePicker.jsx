@@ -29,9 +29,9 @@ const getMonthName = (monthIndex) => {
   return months[monthIndex];
 };
 
-const DatePicker = () => {
+const DatePicker = ({ value, onChange }) => {
   const [showCalendar, setShowCalendar] = useState(false);
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState(value || "");
   const [selectedMonth, setSelectedMonth] = useState(moment().month());
   const [selectedYear, setSelectedYear] = useState(moment().year());
   const [showMonthDropdown, setShowMonthDropdown] = useState(false);
@@ -90,6 +90,7 @@ const DatePicker = () => {
     const monthFormatted = (currentMonth + 1).toString().padStart(2, "0");
     const formattedDate = `${dayFormatted}/${monthFormatted}/${currentYear}`;
     setSelectedDate(formattedDate);
+    onChange(formattedDate);
     setShowCalendar(false);
   };
 
