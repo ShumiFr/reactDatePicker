@@ -21,6 +21,7 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
+  position: relative;
 }
 
 .datePicker-body table {
@@ -49,4 +50,38 @@
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.datePicker-header-chooseMonth-container,
+.datePicker-header-chooseYear-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-dropdown,
+.year-dropdown {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0; /* Align the dropdown with the button */
+  width: 100px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Limit the height to 200px */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.dropdown-item {
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: lightblue;
 }

@@ -34,6 +34,8 @@ const DatePicker = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedMonth, setSelectedMonth] = useState(moment().month());
   const [selectedYear, setSelectedYear] = useState(moment().year());
+  const [showMonthDropdown, setShowMonthDropdown] = useState(false);
+  const [showYearDropdown, setShowYearDropdown] = useState(false);
 
   const currentDay = moment().date();
   const currentMonth = selectedMonth;
@@ -71,6 +73,8 @@ const DatePicker = () => {
   const handleClickOutside = (event) => {
     if (!event.target.closest(".datePicker-container")) {
       setShowCalendar(false);
+      setShowMonthDropdown(false);
+      setShowYearDropdown(false);
     }
   };
 
@@ -107,6 +111,21 @@ const DatePicker = () => {
     }
   };
 
+  const handleToday = () => {
+    setSelectedMonth(moment().month());
+    setSelectedYear(moment().year());
+  };
+
+  const handleMonthSelect = (monthIndex) => {
+    setSelectedMonth(monthIndex);
+    setShowMonthDropdown(false);
+  };
+
+  const handleYearSelect = (year) => {
+    setSelectedYear(year);
+    setShowYearDropdown(false);
+  };
+
   return (
     <div className="datePicker-container">
       <input
@@ -126,16 +145,52 @@ const DatePicker = () => {
             >
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-            <button className="datePicker-header-home">
+            <button className="datePicker-header-home" onClick={handleToday}>
               <FontAwesomeIcon icon={faHouse} />
             </button>
-            <button className="datePicker-header-chooseMonth">
-              {getMonthName(currentMonth)}{" "}
-              <FontAwesomeIcon icon={faChevronDown} />
-            </button>
-            <button className="datePicker-header-chooseYear">
-              {currentYear} <FontAwesomeIcon icon={faChevronDown} />
-            </button>
+            <div className="datePicker-header-chooseMonth-container">
+              <button
+                className="datePicker-header-chooseMonth"
+                onClick={() => setShowMonthDropdown(!showMonthDropdown)}
+              >
+                {getMonthName(currentMonth)}{" "}
+                <FontAwesomeIcon icon={faChevronDown} />
+              </button>
+              {showMonthDropdown && (
+                <div className="month-dropdown">
+                  {Array.from({ length: 12 }, (_, index) => (
+                    <div
+                      key={index}
+                      className="dropdown-item"
+                      onClick={() => handleMonthSelect(index)}
+                    >
+                      {getMonthName(index)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="datePicker-header-chooseYear-container">
+              <button
+                className="datePicker-header-chooseYear"
+                onClick={() => setShowYearDropdown(!showYearDropdown)}
+              >
+                {currentYear} <FontAwesomeIcon icon={faChevronDown} />
+              </button>
+              {showYearDropdown && (
+                <div className="year-dropdown">
+                  {Array.from({ length: 101 }, (_, index) => (
+                    <div
+                      key={index}
+                      className="dropdown-item"
+                      onClick={() => handleYearSelect(currentYear - 50 + index)}
+                    >
+                      {currentYear - 50 + index}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
             <button
               className="datePicker-header-arrowRight"
               onClick={handleNextMonth}
