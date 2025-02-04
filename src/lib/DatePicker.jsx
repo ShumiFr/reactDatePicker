@@ -8,7 +8,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import Calendrier from "./Calendrier";
-import "../styles/datePicker.css";
+import "../src/styles/datePicker.css";
 import moment from "moment";
 
 const getMonthName = (monthIndex) => {
