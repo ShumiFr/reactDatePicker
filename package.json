@@ -1,14 +1,21 @@
 {
-  "name": "reactdatepicker",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "react-datepicker-component",
+  "version": "1.0.0",
+  "description": "A custom date picker component for React",
+  "main": "src/components/DatePicker.jsx",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "keywords": [
+    "react",
+    "datepicker",
+    "component"
+  ],
+  "author": "Gagnaire Pauline",
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
