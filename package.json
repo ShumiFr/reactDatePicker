@@ -1,5 +1,5 @@
 {
-  "name": "react-datepicker-component",
+  "name": "@shumifr/react-date-picker",
   "version": "1.0.0",
   "description": "A custom date picker component for React",
   "main": "src/components/DatePicker.jsx",
@@ -14,6 +14,10 @@
     "datepicker",
     "component"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShumiFr/reactDatePicker.git"
+  },
   "author": "Gagnaire Pauline",
   "license": "MIT",
   "dependencies": {
