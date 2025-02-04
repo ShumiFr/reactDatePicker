@@ -6,12 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.js"),
+      entry: path.resolve(__dirname, "src/lib/index.js"),
       name: "ReactDatePicker",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      // Assurez-vous d'externaliser les dépendances que vous ne voulez pas inclure dans votre bundle
       external: [
         "react",
         "react-dom",

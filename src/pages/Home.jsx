@@ -1,4 +1,4 @@
-import DatePicker from "../components/datePicker";
+import DatePicker from "../lib/DatePicker";
 
 const Home = () => {
   return (

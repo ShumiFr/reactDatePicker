@@ -1,20 +1,25 @@
 {
   "name": "@shumifr/react-date-picker",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "description": "A custom date picker component for React",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
-    "import": "./dist/index.es.js",
-    "require": "./dist/index.umd.js"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "files": [
     "dist",
-    "src"
+    "README.md"
   ],
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShumiFr/reactDatePicker.git"
+  },
+  "author": "Gagnaire Pauline",
+  "license": "MIT",
   "scripts": {
-    "build": "vite build",
+    "build": "del dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -24,22 +29,19 @@
     "datepicker",
     "component"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ShumiFr/reactDatePicker.git"
-  },
-  "author": "Gagnaire Pauline",
-  "license": "MIT",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "moment": "^2.30.1",
+    "moment": "^2.30.1"
+  },
+  "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.26.4",
     "@babel/core": "^7.26.7",
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-react": "^7.26.3",
@@ -47,12 +49,12 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
-    "babel-cli": "^6.26.0",
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "rimraf": "^3.0.2",
     "vite": "^6.0.5"
   }
 }
