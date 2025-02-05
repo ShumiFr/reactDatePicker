@@ -1,6 +1,6 @@
 {
   "name": "@shumifr/react-date-picker",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "A custom date picker component for React",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -10,6 +10,12 @@
     "README.md",
     "src/styles"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/DatePicker.js",
+      "require": "./dist/DatePicker.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ShumiFr/reactDatePicker.git"
