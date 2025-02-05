@@ -1,14 +1,10 @@
 {
   "name": "@shumifr/react-date-picker",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "A custom date picker component for React",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
-  "exports": {
-    "import": "./dist/DatePicker.js",
-    "require": "./dist/DatePicker.js"
-  },
   "files": [
     "dist",
     "README.md",
@@ -19,9 +15,8 @@
     "url": "https://github.com/ShumiFr/reactDatePicker.git"
   },
   "author": "Gagnaire Pauline",
-  "license": "MIT",
   "scripts": {
-    "build": "del dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "build": "del dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview"
