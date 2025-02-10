@@ -35,7 +35,8 @@ const Calendrier = ({
       <tbody>
         {monthWeeks.map((week, weekIndex) => (
           <tr key={weekIndex}>
-            {week.map((day, dayIndex) => {
+            {week.map((dayObj, dayIndex) => {
+              const { day, isCurrentMonth } = dayObj;
               const isActive =
                 day === currentDay &&
                 moment().month() === currentMonth &&
@@ -44,7 +45,9 @@ const Calendrier = ({
                 <td
                   key={dayIndex}
                   onClick={handleClick}
-                  className={isActive ? "active" : ""}
+                  className={`${isActive ? "active" : ""} ${
+                    !isCurrentMonth ? "not-current-month" : ""
+                  }`}
                 >
                   {day ? day.toString().padStart(2, "0") : ""}
                 </td>

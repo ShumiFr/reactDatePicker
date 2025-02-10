@@ -51,26 +51,47 @@ const DatePicker = ({ value, onChange }) => {
   const firstDayOfMonth = (currentDate.startOf("month").day() + 6) % 7; // Décaler pour commencer par lundi
   const daysInMonth = currentDate.daysInMonth();
 
+  const previousMonth = moment()
+    .year(currentYear)
+    .month(currentMonth)
+    .subtract(1, "month");
+  const nextMonth = moment()
+    .year(currentYear)
+    .month(currentMonth)
+    .add(1, "month");
+  const daysInPreviousMonth = previousMonth.daysInMonth();
+
   const monthWeeks = [];
   let week = [];
 
-  // Remplir les premières cases vides
-  for (let i = 0; i < firstDayOfMonth; i++) {
-    week.push(null);
+  // Remplir les premières cases avec les jours du mois précédent
+  for (let i = firstDayOfMonth - 1; i >= 0; i--) {
+    week.push({
+      day: daysInPreviousMonth - i,
+      isCurrentMonth: false,
+    });
   }
 
-  // Ajouter les jours du mois
+  // Ajouter les jours du mois actuel
   for (let day = 1; day <= daysInMonth; day++) {
-    week.push(day);
+    week.push({
+      day,
+      isCurrentMonth: true,
+    });
     if (week.length === 7) {
       monthWeeks.push(week);
       week = [];
     }
   }
 
-  // Compléter la dernière semaine
+  // Compléter la dernière semaine avec les jours du mois suivant
+  let day = 1;
   while (week.length < 7) {
-    week.push(null);
+    week.push({
+      day,
+      isCurrentMonth: false,
+    });
+    day++;
   }
   monthWeeks.push(week);
 
