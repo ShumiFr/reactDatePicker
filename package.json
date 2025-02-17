@@ -59,5 +59,11 @@
     "globals": "^15.14.0",
     "rimraf": "^3.0.2",
     "vite": "^6.0.5"
+  },
+  "engines": {
+    "node": "v23.7.0"
+  },
+  "recommendations": {
+    "editor": "Visual Studio Code"
   }
 }
